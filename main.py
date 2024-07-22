@@ -14,7 +14,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def main():
     async with bot:
         await setup_cogs()
-        await bot.start('MTE1NzU0NDg1ODIxNTUyMjM0NA.Go-qSL.P4C7vEzFuFAn6i8IbVABuIxQixu1VcYPr_q7hM')
+        await bot.start('TOKEN')
 
 async def setup_cogs():
     from cogs import setup_cogs
