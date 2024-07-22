@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 import asyncio
-from webdriver import keep_alive
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -10,11 +9,12 @@ intents.guilds = True
 intents.members = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
+access_token = os.environ["BOT_TOKEN"]
 
 async def main():
     async with bot:
         await setup_cogs()
-        await bot.start('TOKEN')
+        await bot.start(access_token)
 
 async def setup_cogs():
     from cogs import setup_cogs
@@ -26,5 +26,3 @@ async def on_ready():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-keep_alive()
